@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Birthday Sanskriti ❤️</title>
+<meta name="theme-color" content="#16051f">
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  font-family:Georgia,"Times New Roman",serif;
+  background:#08020d;color:#fff;overflow-x:hidden;
+}
+body:before{
+  content:"";position:fixed;inset:0;pointer-events:none;z-index:999;
+  background:radial-gradient(circle at 50% 0%,rgba(255,110,190,.12),transparent 35%);
+}
+canvas{position:fixed;inset:0;pointer-events:none;z-index:20}
+#stars{z-index:0}
+section{
+  min-height:100vh;position:relative;display:flex;align-items:center;
+  justify-content:center;padding:70px 20px;overflow:hidden;
+}
+.hero{
+  background:
+   radial-gradient(circle at 50% 35%,rgba(255,77,166,.22),transparent 25%),
+   radial-gradient(circle at 20% 80%,rgba(138,43,226,.18),transparent 30%),
+   #08020d;
+  text-align:center;
+}
+.content{position:relative;z-index:5;max-width:900px;width:100%}
+.small{
+  color:#f7b4db;text-transform:uppercase;letter-spacing:6px;font-size:12px;
+  margin-bottom:22px;animation:fadeUp 1.2s ease both;
+}
+h1{
+  font-size:clamp(54px,13vw,120px);line-height:.9;
+  font-weight:400;letter-spacing:-4px;
+  background:linear-gradient(120deg,#fff,#ffd4ed,#ff73ba,#fff);
+  background-size:300% auto;-webkit-background-clip:text;color:transparent;
+  animation:shine 5s linear infinite,fadeUp 1.2s ease both;
+}
+.subtitle{
+  margin:30px auto 0;max-width:650px;color:#d9bfd3;
+  font-family:Arial,sans-serif;font-size:16px;line-height:1.8;
+  animation:fadeUp 1.5s .2s ease both;
+}
+.btn{
+  display:inline-flex;margin-top:35px;padding:15px 27px;border-radius:50px;
+  color:white;text-decoration:none;border:1px solid rgba(255,255,255,.22);
+  background:rgba(255,255,255,.08);backdrop-filter:blur(15px);
+  box-shadow:0 10px 40px rgba(255,54,157,.16);transition:.3s;
+  font-family:Arial,sans-serif;
+}
+.btn:hover{transform:translateY(-4px);background:rgba(255,90,177,.17)}
+.scroll{
+  position:absolute;bottom:25px;left:50%;transform:translateX(-50%);
+  color:#9d8198;font:11px Arial;letter-spacing:3px;
+}
+.card{
+  max-width:780px;width:100%;padding:50px 30px;border-radius:30px;
+  background:linear-gradient(145deg,rgba(255,255,255,.095),rgba(255,255,255,.025));
+  border:1px solid rgba(255,255,255,.13);backdrop-filter:blur(20px);
+  box-shadow:0 30px 100px rgba(0,0,0,.4);text-align:center;z-index:5;
+}
+.label{font:11px Arial;letter-spacing:4px;text-transform:uppercase;color:#d58bb8}
+h2{font-size:clamp(35px,8vw,65px);font-weight:400;margin:15px 0 25px}
+p{font:16px/1.9 Arial,sans-serif;color:#cfbdcb}
+.letter{
+  text-align:left;background:rgba(255,255,255,.045);padding:28px;
+  border-radius:20px;margin-top:28px;border:1px solid rgba(255,255,255,.08);
+}
+.letter p{margin:0 0 15px}
+.highlight{color:#ff9bce}
+.gallery{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:30px;
+}
+.photo{
+  min-height:180px;border-radius:20px;display:flex;align-items:center;
+  justify-content:center;background:linear-gradient(135deg,#32132e,#180d22);
+  border:1px solid rgba(255,255,255,.1);overflow:hidden;position:relative;
+}
+.photo span{font:12px Arial;color:#bca5b6;letter-spacing:1px}
+.note{
+  margin-top:22px;font:12px Arial;color:#8f798b;
+}
+.timeline{margin-top:35px;display:grid;gap:15px;text-align:left}
+.item{
+  padding:20px;border-left:2px solid #d45a9f;
+  background:rgba(255,255,255,.035);border-radius:0 15px 15px 0;
+}
+.item strong{display:block;color:#ffacd4;font:13px Arial;margin-bottom:7px}
+.item p{font-size:14px}
+.count{
+  font:clamp(35px,10vw,70px) Georgia;color:#fff;margin:15px 0;
+  text-shadow:0 0 35px rgba(255,90,180,.6);
+}
+.cake-wrap{margin:30px auto 10px;width:230px;height:210px;position:relative}
+.cake{
+  position:absolute;left:25px;bottom:10px;width:180px;height:90px;
+  background:linear-gradient(#ffb4d8,#dc5b9b);border-radius:15px 15px 25px 25px;
+  box-shadow:0 15px 35px rgba(255,61,160,.25);
+}
+.cake:before{
+  content:"";position:absolute;top:-17px;left:0;width:180px;height:35px;
+  border-radius:50%;background:#ffe1ef;box-shadow:0 8px 0 #ef8cbb;
+}
+.cream{
+  position:absolute;top:-8px;left:10px;width:160px;height:18px;
+  background:#fff0f7;border-radius:50%;
+}
+.candle{
+  position:absolute;left:105px;bottom:100px;width:18px;height:55px;
+  background:repeating-linear-gradient(45deg,#fff 0 7px,#f08bbd 7px 14px);
+  border-radius:5px;cursor:pointer;
+}
+.flame{
+  position:absolute;left:2px;top:-25px;width:14px;height:22px;background:#ffd76a;
+  border-radius:50% 50% 50% 50%;box-shadow:0 0 25px #ffb32e;
+  animation:flicker .18s infinite alternate;
+}
+.candle.off .flame{display:none}
+.big-heart{
+  font-size:90px;animation:heartbeat 1.3s infinite;
+  filter:drop-shadow(0 0 30px rgba(255,70,160,.7));
+}
+.final{
+  background:radial-gradient(circle at center,rgba(200,30,120,.2),transparent 45%),#08020d;
+}
+.final h2{font-size:clamp(45px,10vw,90px)}
+.signature{margin-top:25px;color:#ef9bc8;font:italic 20px Georgia}
+.float-heart{
+  position:fixed;bottom:-30px;font-size:20px;z-index:30;pointer-events:none;
+  animation:float 5s linear forwards;
+}
+@keyframes shine{to{background-position:300% center}}
+@keyframes fadeUp{from{opacity:0;transform:translateY(25px)}to{opacity:1;transform:none}}
+@keyframes float{to{transform:translateY(-110vh) rotate(360deg);opacity:0}}
+@keyframes heartbeat{50%{transform:scale(1.12)}}
+@keyframes flicker{to{transform:scale(1.12) translateY(-2px)}}
+@media(max-width:650px){
+ .gallery{grid-template-columns:1fr 1fr}
+ .photo{min-height:130px}
+ .photo:last-child{grid-column:span 2}
+ .card{padding:40px 20px}
+}
+
+.match-game{margin-top:28px}
+.game-info{display:flex;justify-content:space-between;gap:10px;font:12px Arial;color:#cdb5c7;margin-bottom:15px}
+.board{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;max-width:430px;margin:auto}
+.tile{aspect-ratio:1;border:0;border-radius:17px;background:linear-gradient(145deg,#35152f,#170b20);border:1px solid rgba(255,255,255,.12);cursor:pointer;perspective:700px;padding:0}
+.tile-inner{width:100%;height:100%;position:relative;transition:transform .45s;transform-style:preserve-3d}
+.tile.flipped .tile-inner,.tile.matched .tile-inner{transform:rotateY(180deg)}
+.face{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;border-radius:17px;backface-visibility:hidden}
+.front{font-size:24px;color:#d991bd}
+.back{transform:rotateY(180deg);font-size:31px;background:rgba(255,255,255,.08)}
+.tile.matched{box-shadow:0 0 22px rgba(255,104,180,.35)}
+#gameMessage{margin-top:17px;color:#ffb2d6;font:13px Arial;min-height:20px}
+.restart{margin-top:18px;padding:10px 18px;border-radius:30px;border:1px solid rgba(255,255,255,.18);background:rgba(255,255,255,.07);color:#fff;cursor:pointer}
+</style>
+</head>
+
+<body>
+<canvas id="stars"></canvas>
+<canvas id="fireworks"></canvas>
+
+<section class="hero" id="home">
+ <div class="content">
+   <div class="small">A little universe made for</div>
+   <h1>Sanskriti<br>Singh</h1>
+   <div style="margin-top:22px;font-size:clamp(25px,6vw,42px);color:#ffd0e9;letter-spacing:1px;text-shadow:0 0 25px rgba(255,100,180,.55)">
+     Happy Birthday Beta ❤️
+   </div>
+   <div class="subtitle">
+     Today is all about you, Sanskriti.<br>
+     A little surprise made especially for your special day. ✨
+   </div>
+   <a class="btn" href="#birthday">Open Your Surprise ↓</a>
+ </div>
+ <div class="scroll">SCROLL SLOWLY • THERE'S MORE</div>
+</section>
+
+<section id="birthday">
+ <div class="card">
+   <div class="label">27 August • Your Day</div>
+   <h2>Happy Birthday,<br><span class="highlight">Sanskriti ❤️</span></h2>
+   <p>
+     Today isn't just another date on the calendar.<br>
+     It's the day the world got a little more beautiful.
+   </p>
+   <div class="count" id="count">27 • 08</div>
+   <p>May this new chapter bring you countless reasons to smile.</p>
+ </div>
+</section>
+
+<section>
+ <div class="card">
+   <div class="label">A little note</div>
+   <h2>For You 💌</h2>
+   <div class="letter">
+     <p>Dear <span class="highlight">Sanskriti</span>,</p>
+     <p>
+       I wanted to make something that feels a little different from a normal
+       birthday wish — something you can open and remember.
+     </p>
+     <p>
+       I hope this year gives you beautiful memories, peaceful moments,
+       exciting adventures and all the happiness you deserve.
+     </p>
+     <p>
+       Keep smiling, keep being yourself, and never forget how special you are.
+       🌷
+     </p>
+     <p>Happy Birthday once again. ❤️</p>
+   </div>
+ </div>
+</section>
+
+<section id="game">
+ <div class="card">
+   <div class="label">A tiny birthday game</div>
+   <h2>Find the Pairs 💕</h2>
+   <p>Flip the cards and match all the cute pairs to unlock the surprise.</p>
+
+   <div class="match-game">
+     <div class="game-info">
+       <span>Moves: <b id="moves">0</b></span>
+       <span>Pairs: <b id="pairs">0</b> / 8</span>
+     </div>
+     <div class="board" id="board"></div>
+     <div id="gameMessage">Find your first pair ✨</div>
+     <button class="restart" id="restart">Restart Game</button>
+   </div>
+ </div>
+</section>
+
+
+
+<section>
+ <div class="card">
+   <div class="label">Make a wish</div>
+   <h2>One Last Thing 🎂</h2>
+   <div class="cake-wrap">
+     <div class="candle" id="candle" title="Click the candle">
+       <div class="flame"></div>
+     </div>
+     <div class="cake"><div class="cream"></div></div>
+   </div>
+   <p>Tap the candle to make your birthday wish. ✨</p>
+   <a class="btn" href="#final" id="wishBtn">I've Made My Wish ❤️</a>
+ </div>
+</section>
+
+<section class="final" id="final">
+ <div class="content" style="text-align:center">
+   <div class="big-heart">❤️</div>
+   <div class="small">For Sanskriti Singh</div>
+   <h2>Happy Birthday<br>Sanskriti!</h2>
+   <p style="max-width:620px;margin:auto">
+     May 27 August always remind you that you deserve beautiful things,
+     beautiful moments and a beautiful year ahead.
+   </p>
+   <div class="signature">Made with a little bit of code & a lot of ❤️</div>
+ </div>
+</section>
+
+<script>
+/* Star field */
+const starCanvas=document.getElementById("stars"),sctx=starCanvas.getContext("2d");
+const fireCanvas=document.getElementById("fireworks"),fctx=fireCanvas.getContext("2d");
+let stars=[], fireworks=[], particles=[];
+function resize(){
+ starCanvas.width=fireCanvas.width=innerWidth;
+ starCanvas.height=fireCanvas.height=innerHeight;
+}
+addEventListener("resize",resize);resize();
+
+for(let i=0;i<150;i++) stars.push({
+ x:Math.random()*innerWidth,y:Math.random()*innerHeight,
+ r:Math.random()*1.5, a:Math.random(), s:.003+Math.random()*.008
+});
+function drawStars(){
+ sctx.clearRect(0,0,innerWidth,innerHeight);
+ stars.forEach(x=>{
+   x.a+=x.s;if(x.a>1||x.a<.15)x.s*=-1;
+   sctx.globalAlpha=x.a;sctx.beginPath();sctx.arc(x.x,x.y,x.r,0,Math.PI*2);
+   sctx.fillStyle="#fff";sctx.fill();
+ });
+ requestAnimationFrame(drawStars);
+}
+drawStars();
+
+/* Floating hearts */
+function heart(){
+ const h=document.createElement("div");h.className="float-heart";
+ h.textContent=["❤️","💕","💗","✨","🌸","🦋"][Math.floor(Math.random()*6)];
+ h.style.left=Math.random()*100+"vw";h.style.fontSize=12+Math.random()*22+"px";
+ document.body.appendChild(h);setTimeout(()=>h.remove(),5000);
+}
+setInterval(heart,850);
+
+/* Fireworks */
+function burst(x,y){
+ for(let i=0;i<45;i++){
+   const a=Math.PI*2*i/45,sp=1+Math.random()*4;
+   particles.push({x,y,vx:Math.cos(a)*sp,vy:Math.sin(a)*sp,
+     life:1,size:1+Math.random()*2});
+ }
+}
+function fireLoop(){
+ fctx.clearRect(0,0,innerWidth,innerHeight);
+ particles.forEach((p,i)=>{
+   p.x+=p.vx;p.y+=p.vy;p.vy+=.025;p.life-=.018;
+   fctx.globalAlpha=Math.max(0,p.life);
+   fctx.fillStyle="#ff9ed0";fctx.beginPath();fctx.arc(p.x,p.y,p.size,0,Math.PI*2);fctx.fill();
+   if(p.life<=0)particles.splice(i,1);
+ });
+ requestAnimationFrame(fireLoop);
+}
+fireLoop();
+
+document.getElementById("candle").addEventListener("click",()=>{
+ document.getElementById("candle").classList.add("off");
+ for(let i=0;i<5;i++) setTimeout(()=>burst(
+   innerWidth*.2+Math.random()*innerWidth*.6,
+   innerHeight*.18+Math.random()*innerHeight*.3
+ ),i*250);
+ heart();heart();heart();
+});
+
+document.getElementById("wishBtn").addEventListener("click",()=>{
+ for(let i=0;i<9;i++)setTimeout(()=>burst(
+   innerWidth*.1+Math.random()*innerWidth*.8,
+   innerHeight*.1+Math.random()*innerHeight*.45
+ ),i*180);
+});
+
+/* Reveal sections gently */
+const obs=new IntersectionObserver(entries=>{
+ entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add("seen")})
+},{threshold:.15});
+document.querySelectorAll(".card").forEach(x=>obs.observe(x));
+
+/* Small birthday easter egg */
+document.querySelector("h1").addEventListener("click",()=>{
+ for(let i=0;i<8;i++)setTimeout(heart,i*120);
+});
+
+/* Pair matching game */
+const symbols=["❤️","🌸","🦋","✨","🎂","🌷","💎","🌙"];
+let deck=[],first=null,second=null,lock=false,moves=0,pairCount=0;
+const board=document.getElementById("board");
+const movesEl=document.getElementById("moves");
+const pairsEl=document.getElementById("pairs");
+const msg=document.getElementById("gameMessage");
+
+function shuffle(a){
+ for(let i=a.length-1;i>0;i--){
+   const j=Math.floor(Math.random()*(i+1)); [a[i],a[j]]=[a[j],a[i]];
+ }
+ return a;
+}
+function setupGame(){
+ deck=shuffle([...symbols,...symbols]);
+ first=second=null;lock=false;moves=0;pairCount=0;
+ movesEl.textContent=0;pairsEl.textContent=0;
+ msg.textContent="Find your first pair ✨";
+ board.innerHTML="";
+ deck.forEach((symbol,index)=>{
+   const tile=document.createElement("button");
+   tile.className="tile";
+   tile.dataset.symbol=symbol;
+   tile.innerHTML='<div class="tile-inner"><div class="face front">✦</div><div class="face back">'+symbol+'</div></div>';
+   tile.addEventListener("click",()=>flipTile(tile));
+   board.appendChild(tile);
+ });
+}
+function flipTile(tile){
+ if(lock || tile===first || tile.classList.contains("matched")) return;
+ tile.classList.add("flipped");
+ if(!first){first=tile;return}
+ second=tile;moves++;movesEl.textContent=moves;
+ if(first.dataset.symbol===second.dataset.symbol){
+   first.classList.add("matched");second.classList.add("matched");
+   pairCount++;pairsEl.textContent=pairCount;
+   first=second=null;
+   msg.textContent=pairCount===8 ? "You found every pair! 🎉 Happy Birthday Sanskriti ❤️" : "Perfect match! ✨";
+   if(pairCount===8){
+     for(let i=0;i<8;i++)setTimeout(()=>burst(innerWidth*.1+Math.random()*innerWidth*.8,innerHeight*.1+Math.random()*innerHeight*.4),i*180);
+   }
+ }else{
+   lock=true;msg.textContent="Not a pair — try again 💗";
+   setTimeout(()=>{
+     first.classList.remove("flipped");second.classList.remove("flipped");
+     first=second=null;lock=false;
+   },750);
+ }
+}
+document.getElementById("restart").addEventListener("click",setupGame);
+setupGame();
+</script>
+</body>
+</html>
